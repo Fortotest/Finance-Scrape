@@ -47,10 +47,20 @@ body {
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
+@keyframes glow-pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(244, 63, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+}
+
 .live-indicator-green {
   animation: glow-pulse-green 2s infinite;
 }
 
 .live-indicator-white {
   animation: glow-pulse-white 2s infinite;
+}
+
+.live-indicator-red {
+  animation: glow-pulse-red 2s infinite;
 }

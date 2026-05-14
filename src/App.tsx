@@ -208,11 +208,19 @@ const TickerCard: React.FC<{
                 </div>
                 {data && (
                   <div className={cn(
-                    "px-2.5 py-1 rounded text-[10px] font-bold tracking-widest uppercase flex items-center gap-1.5 border",
-                    data.cached ? "bg-white/5 text-white/50 border-white/10" : "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
+                    "px-1.5 py-0.5 rounded text-[8px] font-bold tracking-widest uppercase flex items-center gap-1.5 border",
+                    data.cached ? "bg-white/5 text-white/50 border-white/10" : 
+                    isNegative ? "bg-rose-500/10 text-rose-500 border-rose-500/20" :
+                    isPositive ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/20" :
+                    "bg-blue-500/10 text-blue-500 border-blue-500/20"
                   )}>
                     {!data.cached && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 live-indicator-green shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+                      <span className={cn(
+                        "w-1 h-1 rounded-full",
+                        isNegative ? "bg-rose-500 live-indicator-red shadow-[0_0_8px_rgba(244,63,94,0.5)]" :
+                        isPositive ? "bg-emerald-500 live-indicator-green shadow-[0_0_8px_rgba(16,185,129,0.5)]" :
+                        "bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                      )}></span>
                     )}
                     {data.cached ? "Cached" : "LIVE"}
                   </div>
