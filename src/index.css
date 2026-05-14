@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #000000;
+  --color-brand-soft: #FFFFFF;
+
+  --font-sans: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: var(--color-brand-dark);
+  color: var(--color-brand-soft);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base primitives */
+.panel {
+  background: #0A0A0A;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.input-field {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-field:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: #1A1A1A;
+}
+
+/* Real-time pulse */
+@keyframes glow-pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes glow-pulse-white {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); }
+  70% { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.live-indicator-green {
+  animation: glow-pulse-green 2s infinite;
+}
+
+.live-indicator-white {
+  animation: glow-pulse-white 2s infinite;
+}
